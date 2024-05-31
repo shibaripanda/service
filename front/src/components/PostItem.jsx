@@ -8,11 +8,15 @@ import BasicModal from "./Modal.jsx"
 import classesBut from './UI/button/css/Button.module.css'
 import { Button } from "./UI/button/Button"
 import SimpleGrow from "./GrowMod.jsx"
+import { MySelect } from "./UI/select/MySelect.jsx"
+import { Select } from "./UI/select/Select.jsx"
 
 
 export const PostItem = (props) => {
+    console.log(props)
 
     const [history, setHistory] = useState({newHis: '', time: ''})
+    const [master, setMaster] = useState({})
     
     const editOldPost = async () => {
         await props.editPost(props.post._id, {$push: {historylist: {time: history.time, text: history.newHis, author: sessionStorage.getItem('email')}}})
@@ -70,7 +74,7 @@ export const PostItem = (props) => {
         />
         )
         if(history.newHis !== ''){
-            ar.push(<Button st={classesBut.modaldell} onClick={editOldPost} key={7777}>Добавить</Button>)
+            ar.push(<MyButton cl='modal' onClick={editOldPost} key={7777}>Добавить</MyButton>)
         }
         return ar
     }
@@ -147,7 +151,7 @@ export const PostItem = (props) => {
     const historyList = () => {
         return(
             <div className="code">
-                {SimpleGrow(props.post.historylist.sort((a,b) => b.time - a.time).map(item => '⏰ ' + new Date(item.time).toLocaleString() + '\n✉️' + item.text + '\n✏️' + item.author + '\n'))}
+                {SimpleGrow(props.post.historylist.sort((a,b) => b.time - a.time).map(item => '⏰ ' + new Date(item.time).toLocaleString() + '\n✉️ ' + item.text + '\n✏️ ' + item.author + '\n' + '---------------------'))}
             </div>
         )
     }
@@ -190,6 +194,17 @@ export const PostItem = (props) => {
         }
         return new Date(time).toLocaleString().split(',')[0]
     }
+    const listMaster = () => {
+        return (
+            <Select 
+            options={props.camp.masters} 
+            defaultValue={'Мастер не выбран'}
+            name={''} 
+            value={master} 
+            onChange={e => setMaster(e.target.value)}
+            />
+        )
+    }
     const orderOpen = () => {
         if(props.post.open === 'open'){
             return (
@@ -207,13 +222,15 @@ export const PostItem = (props) => {
                                     <tr><td align='left'><b>Комплект:</b></td><td>{props.post.complect}</td></tr>
                                     <tr><td align='left'><b>Приёмщик:</b></td><td>{props.post.manager}</td></tr>
                                     <tr><td align='left'><b>Срочность:</b></td><td>{props.post.speed}</td></tr>
-                                    <tr><td align='left'><b>Согласовано:</b></td><td>{props.post.cost}</td></tr>
+                                    <tr><td align='left'><b>Согласовано:</b></td><td>{props.post.cost} р</td></tr>
                                     <tr><td align='left'><b>Заказчик:</b></td><td><strong>{props.post.clientTel}</strong>, {props.post.name}, {props.post.addres}</td></tr>
                                 </tbody>
                             </table>
                             <hr style={{margin: '7px 0', width: '40%'}}/>
                             <div style={{margin: '10px 0', width: '20%'}}><BasicModal camp={props.camp} post={props.post} upDateOrder={upDateOrder}/></div>
                             <div key={324}>{serviceList()}</div>
+                            <hr style={{margin: '7px 0', width: '100%'}}/>
+                            {listMaster()}
                             <hr style={{margin: '7px 0', width: '100%'}}/>
                             <div>{itemsAr()}</div>
                             <div>{historyList()}</div>
@@ -235,6 +252,7 @@ export const PostItem = (props) => {
                                 <tr>
                                     <td align='left' width={'15%'}><b>№ {props.post.order}</b></td>
                                     <td align='left' width={'25%'}><b>{props.post.title}</b></td>
+                                    <td align='left' width={'40%'}><b>{props.post.model}</b></td>
                                     <td align='left' width={'40%'}><b>{props.post.model}</b></td>
                                     <td align='right' width={'20%'}><b>{timeSet(props.post.date)}</b></td>
                                 </tr>

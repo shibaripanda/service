@@ -11,6 +11,9 @@ export class Order {
   manager: string;
 
   @Prop({required: true})
+  master: string;
+
+  @Prop({required: true})
   title: string;
 
   @Prop({required: true})
