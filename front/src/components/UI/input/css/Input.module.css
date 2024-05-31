@@ -1,0 +1,98 @@
+.myInput {
+    width: 55%;
+    padding: 3px 15px;
+    margin: 1px 0;
+    border: 2px solid rgb(88, 88, 88);
+    border-radius: 10px;
+    &:hover {
+        color: rgb(0, 0, 0);
+        border: 2px solid rgb(0, 0, 0);
+    }
+    &:focus {
+        color: rgb(0, 0, 0);
+        border: 2px solid rgb(0, 0, 0);
+    }
+}
+
+.settingsInput {
+    font-size: 13px;
+    width: 100%;
+    padding: 5px 15px;
+    margin: 1px 0;
+    border: 1px solid rgb(88, 88, 88);
+    border-radius: 10px;
+    &:hover {
+        color: rgb(0, 0, 0);
+        border: 1px solid rgb(0, 0, 0);
+    }
+    &:focus {
+        color: rgb(0, 0, 0);
+        border: 1px solid rgb(0, 0, 0);
+    }
+}
+
+.addInfoInput {
+    width: 600px;
+    padding: 3px 15px;
+    margin: 1px 0;
+    border: 2px solid rgb(88, 88, 88);
+    border-radius: 10px;
+    &:hover {
+        color: rgb(0, 0, 0);
+        border: 2px solid rgb(0, 0, 0);
+    }
+    &:focus {
+        color: rgb(0, 0, 0);
+        border: 2px solid rgb(0, 0, 0);
+    }
+}
+
+.loginInput {
+    width: 100%;
+    padding: 3px 15px;
+    margin: 1px 0;
+    border: 3px solid rgb(88, 88, 88);
+    border-radius: 10px;
+    &:hover {
+        color: rgb(0, 0, 0);
+        border: 3px solid rgb(0, 0, 0);
+    }
+    &:focus {
+        color: rgb(0, 0, 0);
+        border: 3px solid rgb(0, 0, 0);
+    }
+}
+
+.modal {
+    width: 100%;
+    padding: 3px 15px;
+    margin: 1px 0;
+    border: 2px solid rgb(88, 88, 88);
+    border-radius: 10px;
+    outline: none;
+    &:hover {
+        color: rgb(0, 0, 0);
+        border: 2px solid rgb(0, 0, 0);
+    }
+    &:focus {
+        color: rgb(0, 0, 0);
+        border: 2px solid rgb(0, 0, 0);
+    }
+}
+
+.modalSmall {
+    width: 25%;
+    padding: 3px 15px;
+    margin: 1px 0;
+    border: 2px solid rgb(88, 88, 88);
+    border-radius: 10px;
+    outline: none;
+    &:hover {
+        color: rgb(0, 0, 0);
+        border: 2px solid rgb(0, 0, 0);
+    }
+    &:focus {
+        color: rgb(0, 0, 0);
+        border: 2px solid rgb(0, 0, 0);
+    }
+}

@@ -1,0 +1,17 @@
+.select {
+    width: 45%;
+    /* height: 10%;
+    padding: 3px 15px;
+    margin: 1px 0; */
+    border: 1px solid rgb(248, 3, 3);
+    border-radius: 15px;
+    /* outline: none; */
+    /* &:hover {
+        color: rgb(0, 0, 0);
+        border: 2px solid rgb(0, 0, 0);
+    }
+    &:focus {
+        color: rgb(0, 0, 0);
+        border: 2px solid rgb(0, 0, 0);
+    } */
+}

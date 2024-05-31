@@ -1,0 +1,118 @@
+.colorBut {
+    width: 100%;
+    padding: 5px 15px;
+    color: rgb(1, 75, 235);
+    font-size: 14px;
+    background: transparent;
+    border: 3px solid rgb(1, 75, 235);
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.colorButDisable {
+    width: 100%;
+    padding: 5px 15px;
+    color: rgb(71, 71, 71);
+    font-size: 14px;
+    background: transparent;
+    border: 1px solid rgb(71, 71, 71);
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.myButton {
+    width: 100%;
+    padding: 5px 15px;
+    color: rgb(88, 88, 88);
+    font-size: 14px;
+    background: transparent;
+    border: 3px solid rgb(88, 88, 88);
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: bold;
+    &:hover {
+        color: rgb(0, 0, 0);
+        border: 3px solid rgb(0, 0, 0);
+    }
+    &:focus {
+        color: rgb(0, 0, 0);
+        border: 3px solid rgb(0, 0, 0);
+    }
+}
+
+.myButtonCr {
+    width: 55%;
+    padding: 5px 15px;
+    color: rgb(1, 75, 235);
+    font-size: 14px;
+    background: transparent;
+    border: 3px solid rgb(1, 75, 235);
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.settingButton {
+    width: 25%;
+    padding: 5px 15px;
+    color: rgb(1, 75, 235);
+    font-size: 13px;
+    background: transparent;
+    border: 2px solid rgb(1, 75, 235);
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.modal {
+    width: 20%;
+    padding: 5px 15px;
+    color: rgb(88, 88, 88);
+    font-size: 14px;
+    background: transparent;
+    border: 3px solid rgb(88, 88, 88);
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: bold;
+    &:hover {
+        color: rgb(0, 0, 0);
+        border: 3px solid rgb(0, 0, 0);
+    }
+    &:focus {
+        color: rgb(0, 0, 0);
+        border: 3px solid rgb(0, 0, 0);
+    }
+}
+
+/* .modaldell1 {
+    width: 110px;
+    padding: 5px 15px;
+    color: rgb(1, 75, 235);
+    font-size: 14px;
+    background: transparent;
+    border: 2px solid rgb(1, 75, 235);
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: bold;
+} */
+
+.modaldellbut {
+    width: 90px;
+    padding: 5px 15px;
+    color: rgb(88, 88, 88);
+    font-size: 14px;
+    background: transparent;
+    border: 3px solid rgb(88, 88, 88);
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: bold;
+    &:hover {
+        color: rgb(0, 0, 0);
+        border: 3px solid rgb(0, 0, 0);
+    }
+    &:focus {
+        color: rgb(0, 0, 0);
+        border: 3px solid rgb(0, 0, 0);
+    }
+}
