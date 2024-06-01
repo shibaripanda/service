@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import mongoose, { HydratedDocument } from 'mongoose';
+import { fix } from '../fix'
 
 export type CompDocument = HydratedDocument<Comp>;
 
@@ -20,6 +21,9 @@ export class Comp {
   @Prop({default: []})
   masters: Array<object>;
 
+  @Prop({default: fix.defaultStatusesOfOrders})
+  statusesOfOrders: Array<object>;
+
   @Prop()
   namecomp: string;
 
@@ -32,7 +36,7 @@ export class Comp {
   @Prop({ type: Object, default: {start: 'time'}})
   docprint: object;
 
-  @Prop({ type: Object, default: {main: 'rgb(1, 75, 235)', order: 'rgb(1, 75, 235)', ready: 'rgb(1, 75, 235)', close: 'rgb(1, 75, 235)'}})
+  @Prop({ type: Object, default: fix.defaultColorsOfApp})
   colorsettings: object;
 
   @Prop({ type: Array })

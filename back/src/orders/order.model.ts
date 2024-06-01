@@ -10,7 +10,7 @@ export class Order {
   @Prop({required: true})
   manager: string;
 
-  @Prop({required: true})
+  @Prop({required: false})
   master: string;
 
   @Prop({required: true})
@@ -64,7 +64,7 @@ export class Order {
   @Prop({ type: Array, default: [] })
   service: object
 
-  @Prop({required: true, default: 'Новый' })
+  @Prop({required: false})
   status: string;
 
 }

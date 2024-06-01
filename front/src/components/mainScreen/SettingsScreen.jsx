@@ -61,13 +61,20 @@ export const SettingsScreen = (props) => {
         return props.camp[user][0].name + ' (' + props.camp[user][0].email + ')'
     }
 
+    const updateColorOfOrders = async (status, newColor) => {
+        // (props.camp.statusesOfOrders.find(item => item.status === status)).color = newColor
+        await props.getCamp()
+        await axiosCall('PUT', fix.link + '/camps/' + sessionStorage.getItem('campId'), {"statusesOfOrders.status" : status}, {"$set" : {"statusesOfOrders.$.color" : newColor}})
+        await props.getCamp()
+    }
+
     const roleStatus = () => {
         if(sessionStorage.getItem('role').includes('owner')){
             return [
                 {name: 'Владелец', inbox: <OwnerSet camp={props.camp} newset={newset} setNewset={setNewset} upDateCampInfo={upDateCampInfo} managerList={ManagerList}/>},
                 {name: 'Сотрудники', inbox: <PeopleSet camp={props.camp} newset={newset} setNewset={setNewset} upDateCampInfo={upDateCampInfo} managerList={ManagerList}/>},
                 {name: 'Документы', inbox: <DocPrintSet camp={props.camp} newset={newset} setNewset={setNewset} upDateCampInfo={upDateCampInfo}/>},
-                {name: 'Цвет', inbox: <ColorPanel camp={props.camp} newset={newset} setNewset={setNewset} upDateCampInfo={upDateCampInfo}/>},
+                {name: 'Цвет', inbox: <ColorPanel camp={props.camp} newset={newset} setNewset={setNewset} upDateCampInfo={updateColorOfOrders}/>},
                 {name: 'Telegram', inbox: <TelegramSet camp={props.camp} newset={newset} setNewset={setNewset} upDateCampInfo={upDateCampInfo}/>}
             ]
         }
@@ -75,7 +82,7 @@ export const SettingsScreen = (props) => {
             return [
                 {name: 'Супер-Менеджер', inbox: <SuperAdminSet camp={props.camp} newset={newset} setNewset={setNewset} upDateCampInfo={upDateCampInfo} managerList={ManagerList}/>},
                 {name: 'Документы', inbox: <DocPrintSet camp={props.camp} newset={newset} setNewset={setNewset} upDateCampInfo={upDateCampInfo}/>},
-                {name: 'Цвет', inbox: <ColorPanel camp={props.camp} newset={newset} setNewset={setNewset} upDateCampInfo={upDateCampInfo}/>},
+                {name: 'Цвет', inbox: <ColorPanel camp={props.camp} newset={newset} setNewset={setNewset} upDateCampInfo={updateColorOfOrders}/>},
                 {name: 'Telegram', inbox: <TelegramSet camp={props.camp} newset={newset} setNewset={setNewset} upDateCampInfo={upDateCampInfo}/>}
             ]
         }

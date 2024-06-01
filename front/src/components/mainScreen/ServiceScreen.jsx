@@ -13,7 +13,7 @@ export const ServiceScreen = (props) => {
             return (
                 <div align='center'>   
                     <h4>{props.leng.newOrder.ru}</h4>
-                    <PostForm create={props.createPost} fixlist={props.fixlist}/>
+                    <PostForm create={props.createPost} fixlist={props.fixlist} camp={props.camp}/>
                     <hr style={{margin: '15px 0'}}/>
                     <h4>{props.leng.searchOrder.ru}</h4>
                     <PostFilter filter={props.filter} setFilter={props.setFilter} dropList={fix.searchList}/>

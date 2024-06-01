@@ -13,7 +13,7 @@ import { Select } from "./UI/select/Select.jsx"
 
 
 export const PostItem = (props) => {
-    console.log(props)
+    // console.log(props)
 
     const [history, setHistory] = useState({newHis: '', time: ''})
     const [master, setMaster] = useState({})
@@ -155,11 +155,8 @@ export const PostItem = (props) => {
             </div>
         )
     }
-    const colorBorderOrder = (status) => {
-        if(status === 'Новый') return props.colors.order
-        else if(status === 'Готов') return props.colors.ready
-        else if(status === 'Выдан') return props.colors.close
-        return 'rgb(1, 75, 235)'
+    const colorBorderOrder = () => {
+        return (props.camp.statusesOfOrders.find(item => item.status === props.post.status)).color
     }
     const varantOrReadyButton = () => {
         if(props.post.status === 'Готов'){
@@ -198,9 +195,8 @@ export const PostItem = (props) => {
         return (
             <Select 
             options={props.camp.masters} 
-            defaultValue={'Мастер не выбран'}
-            name={''} 
-            value={master} 
+            defaultValue={props.post.master ? props.post.master : 'Мастер не выбран'}
+            // value={master} 
             onChange={e => setMaster(e.target.value)}
             />
         )
@@ -208,7 +204,7 @@ export const PostItem = (props) => {
     const orderOpen = () => {
         if(props.post.open === 'open'){
             return (
-                <div className={`post`}  style={{border: `3px solid ${colorBorderOrder(props.post.status)}`}}  align='left'>
+                <div className={`post`}  style={{border: `3px solid ${colorBorderOrder()}`}}  align='left'>
                     <div className="post__content">
                         <div><strong>№ {props.post.order}  {props.post.title} {props.post.model}</strong></div>
                         <div><strong>{new Date(props.post.date).toLocaleString()}</strong></div>
@@ -246,7 +242,7 @@ export const PostItem = (props) => {
         }
         else{
             return (
-                <div className={`post`} style={{border: `3px solid ${colorBorderOrder(props.post.status)}`, cursor: 'pointer'}} onClick={() => props.editOpen(props.post._id)}>
+                <div className={`post`} style={{border: `3px solid ${colorBorderOrder()}`, cursor: 'pointer'}} onClick={() => props.editOpen(props.post._id)}>
                     <table border="0" cellSpacing="0" cellPadding="0" width='100%' className='tableAct1'>
                             <tbody>
                                 <tr>

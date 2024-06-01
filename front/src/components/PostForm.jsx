@@ -6,7 +6,9 @@ import { rendomLetteOrder } from "../module/rendomLetteOrder.js"
 import { MyButtonCr } from "./UI/button/MyButtonCr.jsx"
 import { updatingFastList } from "../module/updatingFastList.js"
 
-export const PostForm = ({create, fixlist}) => {
+export const PostForm = ({create, fixlist, camp}) => {
+
+    console.log(camp)
 
     const inputRef = useRef(null)
     
@@ -25,6 +27,7 @@ export const PostForm = ({create, fixlist}) => {
         const newPost = {
             ...post,
             open: 'open',
+            status: camp.statusesOfOrders[0].status,
             historylist: [{time: Date.now(), text: 'Создан', author: sessionStorage.getItem('email')}],
             campId: sessionStorage.getItem('campId'),
             id: Date.now(), order: rendomNumberOrder(fix.orderNumbers) +
